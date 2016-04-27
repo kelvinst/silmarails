@@ -1,0 +1,8 @@
+Description:
+    Copy all the overrided templates by silmarails
+
+Example:
+    rails generate silmarails:install
+
+    This will create: a lot of template files for a lot of generators
+

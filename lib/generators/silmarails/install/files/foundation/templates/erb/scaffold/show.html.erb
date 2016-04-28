@@ -7,14 +7,16 @@
   <%%= link_to 'Back', <%= index_helper %>_path %>
 </div>
 
-<section class="small-8 small-offset-2
-  medium-6 medium-offset-3
-  large-4 large-offset-4 columns">
+<div class="row">
+  <div class="small-8 small-offset-2
+    medium-6 medium-offset-3
+    large-4 large-offset-4 columns">
 <% attributes.reject(&:password_digest?).each do |attribute| -%>
-  <p>
-    <strong><%= attribute.human_name %>:</strong>
-    <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
-  </p>
+    <p>
+      <strong><%= attribute.human_name %>:</strong>
+      <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+    </p>
 <% end -%>
-</section>
+  </div>
+</div>
 

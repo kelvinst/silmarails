@@ -26,6 +26,8 @@ gem 'silmarails'
 gem 'kaminari'
 gem 'responders'
 gem 'simple_form'
+# Uncomment this and remove bootstrap if you are using foundation
+# gem 'foundation-rails'
 
 group :test do
   gem "rspec"
@@ -53,16 +55,26 @@ list of commands you'll probably need to execute:
 
 ```bash
 rails g kaminari:config
-rails g kaminari:views bootstrap3
-rails g responders:install
-rails g simple_form:install --bootstrap
 rails g rspec:install
+rails g responders:install
+
+# if you're using bootstrap
+rails g kaminari:views bootstrap3
+rails g simple_form:install --bootstrap
+
+# if you're using foundation
+rails g kaminari:views foundation5
+rails g simple_form:install --foundation
 ```
 
 And finally:
 
 ```bash
-rails g silmarails:install
+# if you're using bootstrap
+rails g silmarails:install --framework=bootstrap
+
+# if you're using foundation
+rails g silmarails:install --framework=foundation
 ```
 
 This will copy all the default templates into your rails project, and may have

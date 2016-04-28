@@ -63,6 +63,7 @@ rails g kaminari:views bootstrap3
 rails g simple_form:install --bootstrap
 
 # if you're using foundation
+rails g foundation:install
 rails g kaminari:views foundation5
 rails g simple_form:install --foundation
 ```
@@ -112,12 +113,13 @@ silmarails:
 ```
 <app/assets/stylesheets/application.css>
 # add the following lines to ignore the scaffolds file and import the needed
-# bootstrap
+# bootstrap (if you are not using foundation, of course)
  *= stub scaffolds
  *= require bootstrap
 
 <app/assets/javascripts/application.js>
-# add the following lines to import the needed bootstrap
+# add the following lines to import the needed bootstrap (if you are not using
+# foundation, of course)
 //= require bootstrap
 //= require magic_view
 

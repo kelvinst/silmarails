@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    genesis_rails (0.1.1)
+    silmarails (0.1.1)
       rails (>= 4.2)
 
 GEM
@@ -130,9 +130,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  genesis_rails!
   pry
   rspec-rails
+  silmarails!
 
 BUNDLED WITH
    1.11.2

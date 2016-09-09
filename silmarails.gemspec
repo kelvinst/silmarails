@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 4.2"
 
-  s.add_development_dependency "pry"
-  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "pry", "~> 0.10"
+  s.add_development_dependency "rspec", "~> 3.4"
 end

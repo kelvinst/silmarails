@@ -14,12 +14,6 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
-load 'rails/tasks/engine.rake'
-
-
-load 'rails/tasks/statistics.rake'
-
 
 
 Bundler::GemHelper.install_tasks
@@ -39,7 +33,7 @@ namespace :templates do
   # desc "Copy all the templates from rspec to the application directory for customization. Already existing local copies will be overwritten"
   task :rspec do
     generators_lib = File.join(Gem.loaded_specs["rspec-rails"].full_gem_path, "lib/generators")
-    project_templates = "#{Rails.root}/lib/templates"
+    project_templates = "./lib/templates"
 
     default_templates = { "rspec" => %w{controller helper integration mailer model observer scaffold view} }
 

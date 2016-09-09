@@ -191,12 +191,3 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
     DatabaseCleaner.clean
   end
 ```
-
-## TODO
-
-- [ ] Make the install generator to configure the project with the above
-recommended configuration
-- [ ] Create a way to choose which frameworks and helpers to include when
-installing, aaand copy the correct templates and files according on which were
-selected, which not
-

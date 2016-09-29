@@ -13,13 +13,10 @@ pageLoad = ->
 $ ->
   pageLoad()
 
-  # turbolinks
-  $(document).on 'page:load', pageLoad
-  $(document).on 'page:before-change', ->
+  $(document).on 'turbolinks:before-render', ->
     window.currentView.cleanup()
     true
-  $(document).on 'page:restore', ->
-    window.currentView.cleanup()
+  $(document).on 'turbolinks:render', ->
     pageLoad()
     true
 

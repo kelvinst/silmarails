@@ -40,7 +40,7 @@ RSpec.describe <%= controller_class_name %>Controller, <%= type_metatag(:control
 <% unless options[:singleton] -%>
   describe "GET #index" do
     it "assigns all <%= table_name.pluralize %> as @<%= table_name.pluralize %>" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
+      <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
       get :index, params: {}, session: valid_session
       expect(assigns(:<%= table_name %>)).to eq([<%= file_name %>])
     end
@@ -49,7 +49,7 @@ RSpec.describe <%= controller_class_name %>Controller, <%= type_metatag(:control
 <% end -%>
   describe "GET #show" do
     it "assigns the requested <%= ns_file_name %> as @<%= ns_file_name %>" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
+      <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
       get :show, params: {id: <%= file_name %>.to_param}, session: valid_session
       expect(assigns(:<%= ns_file_name %>)).to eq(<%= file_name %>)
     end
@@ -64,7 +64,7 @@ RSpec.describe <%= controller_class_name %>Controller, <%= type_metatag(:control
 
   describe "GET #edit" do
     it "assigns the requested <%= ns_file_name %> as @<%= ns_file_name %>" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
+      <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
       get :edit, params: {id: <%= file_name %>.to_param}, session: valid_session
       expect(assigns(:<%= ns_file_name %>)).to eq(<%= file_name %>)
     end
@@ -110,20 +110,20 @@ RSpec.describe <%= controller_class_name %>Controller, <%= type_metatag(:control
       }
 
       it "updates the requested <%= ns_file_name %>" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
+        <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
         put :update, params: {id: <%= file_name %>.to_param, <%= ns_file_name %>: new_attributes}, session: valid_session
         <%= file_name %>.reload
         expect(<%= file_name %>.test_attributes).to eq(new_attributes)
       end
 
       it "assigns the requested <%= ns_file_name %> as @<%= ns_file_name %>" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
+        <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
         put :update, params: {id: <%= file_name %>.to_param, <%= ns_file_name %>: valid_attributes}, session: valid_session
         expect(assigns(:<%= ns_file_name %>)).to eq(<%= file_name %>)
       end
 
       it "redirects to the <%= ns_file_name %>" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
+        <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
         put :update, params: {id: <%= file_name %>.to_param, <%= ns_file_name %>: valid_attributes}, session: valid_session
         expect(response).to redirect_to(<%= file_name %>)
       end
@@ -131,13 +131,13 @@ RSpec.describe <%= controller_class_name %>Controller, <%= type_metatag(:control
 
     context "with invalid params" do
       it "assigns the <%= ns_file_name %> as @<%= ns_file_name %>" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
+        <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
         put :update, params: {id: <%= file_name %>.to_param, <%= ns_file_name %>: invalid_attributes}, session: valid_session
         expect(assigns(:<%= ns_file_name %>)).to eq(<%= file_name %>)
       end
 
       it "re-renders the 'edit' template" do
-        <%= file_name %> = <%= class_name %>.create! valid_attributes
+        <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
         put :update, params: {id: <%= file_name %>.to_param, <%= ns_file_name %>: invalid_attributes}, session: valid_session
         expect(response).to render_template("edit")
       end
@@ -146,14 +146,14 @@ RSpec.describe <%= controller_class_name %>Controller, <%= type_metatag(:control
 
   describe "DELETE #destroy" do
     it "destroys the requested <%= ns_file_name %>" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
+      <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
       expect {
         delete :destroy, params: {id: <%= file_name %>.to_param}, session: valid_session
       }.to change(<%= class_name %>, :count).by(-1)
     end
 
     it "redirects to the <%= table_name %> list" do
-      <%= file_name %> = <%= class_name %>.create! valid_attributes
+      <%= file_name %> = FactoryGirl.create(:<%= file_name %>)
       delete :destroy, params: {id: <%= file_name %>.to_param}, session: valid_session
       expect(response).to redirect_to(<%= index_helper %>_url)
     end

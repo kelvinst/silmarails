@@ -58,7 +58,6 @@ RSpec.describe <%= controller_class_name %>Controller, <%= type_metatag(:control
   describe "GET #new" do
     it "assigns a new <%= ns_file_name %> as @<%= ns_file_name %>" do
       get :new, params: {}, session: valid_session
-<% end -%>
       expect(assigns(:<%= ns_file_name %>)).to be_a_new(<%= class_name %>)
     end
   end
